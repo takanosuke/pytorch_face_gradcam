@@ -38,7 +38,7 @@ def setup_model(device):
         module.requires_grad = False
     model.last_linear = nn.Linear(1792, 512, bias=False)
     model.last_bn = nn.BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True)
-    model.logits = nn.Linear(512, 4)
+    model.logits = nn.Linear(512, 4) # 分類するクラス数に応じて変更する(デフォルトは4クラス)
     model.to(device)
     return model
     
